@@ -1,0 +1,15 @@
+@font-face {
+    font-family: tinos;
+    src: url('./assets/font/Tinos-Regular.ttf');
+}
+
+@import "tailwindcss";
+
+@theme {
+    --font-tinos: tinos, "san-serif";
+    --color-logoGreen: #132f24;
+}
+
+body {
+    background-color: darkgrey;
+}
