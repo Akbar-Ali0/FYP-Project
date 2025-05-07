@@ -20,7 +20,7 @@ import Navbar from './components/Navbar';
 // import Vendors from './pages/Vendors';
 // import About from './pages/About';
 // import Help from './pages/Help';
-// import SignIn from './pages/SignIn';
+import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 
 // Wrapper component to provide currentPath to Navbar
@@ -37,12 +37,12 @@ function App() {
           <>
             <NavbarWrapper />
             <Routes>
-              {/* <Route path="/" element={<Home />} />
-              <Route path="/categories" element={<Categories />} />
-              <Route path="/vendors" element={<Vendors />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/help" element={<Help />} />
-              <Route path="/signin" element={<SignIn />} /> */}
+              {/* <Route path="/" element={<Home />} /> */}
+              {/* <Route path="/categories" element={<Categories />} /> */}
+              {/* <Route path="/vendors" element={<Vendors />} /> */}
+              {/* <Route path="/about" element={<About />} /> */}
+              {/* <Route path="/help" element={<Help />} /> */}
+              <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
             </Routes>
           </>
