@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/logo.jpg'; // Assuming your logo is in this path
+import { Link } from 'react-router-dom';
+import logo from '../assets/logo.jpg';
 
-const Navbar = () => {
+const Navbar = ({ currentPath }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const location = useLocation();
 
     // Handle scroll effect for navbar
     useEffect(() => {
@@ -35,7 +34,7 @@ const Navbar = () => {
 
     // Check if the link is active
     const isActive = (path) => {
-        return location.pathname === path ? 'text-green-500 font-bold' : 'hover:text-green-500';
+        return currentPath === path ? 'text-green-500 font-bold' : 'hover:text-green-500';
     };
 
     return (
