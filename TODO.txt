@@ -1,12 +1,14 @@
-1. not responsive for laptop screen (1336x768 something)
-2. 
-3. 
+1. not responsive for laptop screen (1336x768), very very small mobile screens fix Navbar 
+2. Footer
+3. DashBoard
+4. Footer
 
 
 
 x. Fix the proper file structuring for the project (model, backend, assets?)
 x. connect db fail error handling?
 
+x. Landing Pages (4)
 
 
 
