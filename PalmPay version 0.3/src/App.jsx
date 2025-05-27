@@ -1,5 +1,6 @@
 // import Navbar from "./components/Navbar"
 // import SignUp from "./pages/SignUp"
+import Home from "./pages/Home"
 
 // function App() {
 
@@ -37,7 +38,7 @@ function App() {
           <>
             <NavbarWrapper />
             <Routes>
-              {/* <Route path="/" element={<Home />} /> */}
+              <Route path="/" element={<Home />} />
               {/* <Route path="/categories" element={<Categories />} /> */}
               {/* <Route path="/vendors" element={<Vendors />} /> */}
               {/* <Route path="/about" element={<About />} /> */}
