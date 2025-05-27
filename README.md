@@ -17,3 +17,9 @@
     react-router-dom
     react-hook-form
     lucide-react
+
+    express 
+    mongoose 
+    bcryptjs 
+    cors
+    nodemon --nw

@@ -1,0 +1,15 @@
+1. not responsive for laptop screen (1336x768 something)
+2. 
+3. 
+
+
+
+x. Fix the proper file structuring for the project (model, backend, assets?)
+x. connect db fail error handling?
+
+
+
+
+z. Make Logo
+z. Navbar -> Sign In button (Look change)
+
