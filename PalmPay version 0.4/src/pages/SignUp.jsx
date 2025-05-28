@@ -135,7 +135,7 @@ export default function SignUpPage() {
                   {...register("email", {
                     required: "Email is required",
                     pattern: {
-                      value: /^[A-Z0-9._%+-]+@(gmail|yahoo|hotmail|outlook|icloud|aol|protonmail|zoho|numl)\.(com|org|net|edu|co|io|gov)\.(pk)$/i,
+                      value: /^[A-Z0-9._%+-]+@((gmail|yahoo|hotmail|outlook|icloud|aol|protonmail|zoho|numl)\.(com|org|net|edu|co|io|gov)|numl\.edu\.pk)$/i,
                       message: "Please enter a valid email from a common provider"
                     }
                   })}

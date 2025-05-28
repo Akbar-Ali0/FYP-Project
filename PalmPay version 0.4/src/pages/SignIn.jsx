@@ -40,10 +40,24 @@ export default function SignInPage() {
         }
     };
 
-
     return (
-        <div className="flex h-screen w-full bg-gray-100 p-8 md:p-12 lg:p-16 items-center justify-center">
-            <div className="flex w-full max-w-6xl h-auto md:h-5/6 shadow-lg rounded-2xl overflow-hidden">
+        <div
+            className="flex w-full bg-gray-100 items-center justify-center relative"
+            style={{
+                height: '100dvh', // Dynamic viewport height for mobile browsers
+                paddingTop: 'clamp(60px, 8vh, 100px)', // Dynamic navbar space
+                paddingBottom: 'clamp(20px, 3vh, 60px)', // Dynamic bottom space
+                paddingLeft: 'clamp(16px, 4vw, 64px)', // Responsive horizontal padding
+                paddingRight: 'clamp(16px, 4vw, 64px)'
+            }}
+        >
+            <div
+                className="flex w-full max-w-6xl shadow-lg rounded-2xl overflow-hidden relative"
+                style={{
+                    height: 'clamp(500px, 80vh, 800px)', // Responsive height based on viewport
+                    minHeight: '500px' // Ensure minimum usable height
+                }}
+            >
                 {/* Left sidebar - white form */}
                 <div className="w-full md:w-2/3 flex items-center justify-center p-6 md:p-10 bg-white">
                     <div className="w-full max-w-md mx-auto">
@@ -74,7 +88,7 @@ export default function SignInPage() {
                                     {...register("email", {
                                         required: "Email is required",
                                         pattern: {
-                                            value: /^[A-Z0-9._%+-]+@(gmail|yahoo|hotmail|outlook|icloud|protonmail|zoho|numl)\.(com|org|net|edu|co|io|gov)\.(pk)$/i,
+                                            value: /^[A-Z0-9._%+-]+@((gmail|yahoo|hotmail|outlook|icloud|aol|protonmail|zoho|numl)\.(com|org|net|edu|co|io|gov)|numl\.edu\.pk)$/i,
                                             message: "Please enter a valid email"
                                         }
                                     })}
@@ -158,7 +172,9 @@ export default function SignInPage() {
                 {/* Mobile signup link */}
                 <div className="md:hidden absolute bottom-6 w-full text-center">
                     <span className="text-gray-500">Don't have an account?</span>
-                    <button className="text-teal-500 font-medium ml-2">Sign Up</button>
+                    <Link to="/SignUp" className="text-teal-500 font-medium ml-2">
+                        Sign Up
+                    </Link>
                 </div>
             </div>
         </div>
