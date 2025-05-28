@@ -28,3 +28,5 @@
 -----------------------------------------------------------------------------------------
 Understanding bcrypt:
     https://auth0.com/blog/hashing-in-action-understanding-bcrypt/
+    https://bcrypt-generator.com/
+    https://www.google.com/search?client=firefox-b-d&q=is+bcrypt+good
