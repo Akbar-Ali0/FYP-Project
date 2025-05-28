@@ -27,7 +27,7 @@ export default function SignUpPage() {
       const result = await response.json();
 
       if (!response.ok) {
-        alert(result.message || 'Signup failed');
+        alert(result.message || 'Signup Failed');
       } else {
         alert('Signup successful! You can now log in.');
       }

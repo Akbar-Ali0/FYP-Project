@@ -1,9 +1,6 @@
-// pages/Dashboard.jsx
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { getUser, logout, getUserProfile } from '../utils/auth';
 import { getUser, logout, getUserProfile } from '../../../backend/utils/auth';
-
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -13,11 +10,9 @@ export default function Dashboard() {
   useEffect(() => {
     const loadUserData = async () => {
       try {
-        // Get user from localStorage first
         const localUser = getUser();
         setUser(localUser);
 
-        // Optionally fetch fresh user data from backend
         const profileData = await getUserProfile();
         if (profileData) {
           setUser(profileData);
@@ -34,7 +29,6 @@ export default function Dashboard() {
 
   const handleLogout = async () => {
     try {
-      // Optional: Call backend logout endpoint
       await fetch('http://localhost:5000/api/logout', {
         method: 'POST',
         headers: {
@@ -45,7 +39,6 @@ export default function Dashboard() {
     } catch (error) {
       console.error('Logout error:', error);
     } finally {
-      // Clear local storage and redirect
       logout();
       navigate('/signin');
     }
@@ -60,8 +53,8 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 pt-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
         <div className="bg-white shadow rounded-lg">
           <div className="px-6 py-4 border-b border-gray-200">
             <div className="flex justify-between items-center">
@@ -74,11 +67,11 @@ export default function Dashboard() {
               </button>
             </div>
           </div>
-          
+
           <div className="px-6 py-4">
             <div className="mb-6">
               <h2 className="text-lg font-semibold text-gray-800 mb-4">Welcome back!</h2>
-              
+
               {user && (
                 <div className="bg-teal-50 border border-teal-200 rounded-lg p-4">
                   <h3 className="font-semibold text-teal-800 mb-2">User Information</h3>

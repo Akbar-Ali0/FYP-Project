@@ -26,15 +26,15 @@ const authenticateToken = async (req, res, next) => {
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
     const user = await User.findById(decoded.userId).select('-passwordHash');
-    
+
     if (!user || !user.isActive) {
       return res.status(401).json({ message: 'Invalid token or user not active' });
     }
-    
+
     req.user = user;
     next();
   } catch (err) {
-    return res.status(403).json({ message: 'Invalid or expired token',err });
+    return res.status(403).json({ message: 'Invalid or expired token', err });
   }
 };
 
@@ -55,17 +55,29 @@ app.post('/api/signup', async (req, res) => {
       return res.status(400).json({ message: 'Name, email, and password are required' });
     }
 
+    // Lowercase all information being saved into the database OR only the information that is needed later for performning tasks?
+    // Applying lowercase for only info thats needed right now.
+    // const emailLowerCase = email.toLowerCase();
+    // console.log(emailLowerCase)
+    // console.log("HELLO")
+
     // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(409).json({ message: 'Email already registered' });
+      //does the lower code still run if this is returned because the logs show the HELLLO as well?
     }
+    // console.log("HELLLO")
+
+    // console.log(typeof email)
+    // console.log(typeof emailLowerCase)
 
     // Hash password
     const salt = await bcrypt.genSalt(10);
     const passwordHash = await bcrypt.hash(password, salt);
 
     // Create and save user
+    //if i change it to save lowercaseemail it stops working? why
     const user = new User({
       name,
       email,
@@ -74,9 +86,15 @@ app.post('/api/signup', async (req, res) => {
       isActive: true,
       role: 'user',
     });
+    // console.log(user)
 
     await user.save();
-    res.status(201).json({ message: 'User created successfully!' });
+    // const insertion = await user.save();       //Mystery hunt
+    // console.log(insertion)
+    // if (insertion)
+    //   res.status(201).json({ message: 'User created successfully!' });
+    // else
+    //   res.status(500).json({ message: 'Error saving into the database' });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -84,8 +102,10 @@ app.post('/api/signup', async (req, res) => {
 
 app.post('/api/signin', async (req, res) => {
   const { email, password } = req.body;
+  // const emailLowerCase = email.toLowerCase();
 
   try {
+    // Only checking email right now, do i change this?
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({ error: 'Invalid email or password' });
@@ -104,17 +124,17 @@ app.post('/api/signin', async (req, res) => {
 
     // Generate JWT token
     const token = jwt.sign(
-      { 
+      {
         userId: user._id,
         email: user.email,
-        role: user.role 
+        role: user.role
       },
       JWT_SECRET,
       { expiresIn: JWT_EXPIRES_IN }
     );
 
     // Authentication successful, return token and user info
-    res.status(200).json({ 
+    res.status(200).json({
       message: 'Sign in successful',
       token,
       user: {
@@ -143,14 +163,14 @@ app.get('/api/profile', authenticateToken, async (req, res) => {
       }
     });
   } catch (err) {
-    res.status(500).json({ error: 'Server error',err });
+    res.status(500).json({ error: 'Server error', err });
   }
 });
 
 // Route to verify token validity
 app.get('/api/verify-token', authenticateToken, (req, res) => {
-  res.json({ 
-    valid: true, 
+  res.json({
+    valid: true,
     user: {
       id: req.user._id,
       name: req.user.name,

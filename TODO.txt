@@ -1,10 +1,11 @@
 1. not responsive for laptop screen (1336x768), very very small mobile screens fix Navbar 
-2. Session
-3. Footer
+2. 
+3. Success / Failure Prompts (using alerts right now)
 4. DashBoard
 5. 
 
 
+x. Destory Session not implemented.
 x. Fix the proper file structuring for the project (model, backend, assets?)
 x. connect db fail error handling?
 
@@ -14,13 +15,12 @@ x. Landing Pages (4)
 
 z. Make Logo
 z. Navbar -> Sign In button (Look change)
+z. Add Email checking on Signup
+z. remove the navbar signin button when on the signin/signup page because it looks weird.
 
 -----------------------------------------------------------------------------------------------
-
-Session -> redirect happens.
-        show on Navbar
-        redirect him to signin/signup page if login
-        redirect him to signin when not login
+Data is Case sensitive for database actions -> need to lowercase every information being saved into the database except the password
+                                            -> also in the checks
 
 url/Home breaks it... fix
 fix the dashboard
@@ -30,10 +30,57 @@ fix the navbar -> upon sign in success -> it does not change its shape (still re
 make DashBoard
 authentication success and failure boxes change
 
+Success / Failure boxes to be added
+Automatically change to signin page after signup success
+
+
+
+
+
+
+
+
+Implement the Unique JWT Token. 
 Important: Replace your-super-secret-jwt-key-here-make-it-long-and-complex with a strong, unique secret key. You can generate one using:
-bashnode -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+
+
+When i signup with a email that is already in database -> says it failed
+Enter key to button click (For FORMS)
 
 ----------------------------------------------------------------------------------------------
-
 NavbarWrapper???
 
+Show password on signup/signin page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+thousands of users in database how will operations be quick?
+Captcha on signup (counter botting)
