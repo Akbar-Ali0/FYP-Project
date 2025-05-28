@@ -2,7 +2,7 @@
 2. Session
 3. Footer
 4. DashBoard
-5. Footer
+5. 
 
 
 x. Fix the proper file structuring for the project (model, backend, assets?)
@@ -15,4 +15,25 @@ x. Landing Pages (4)
 z. Make Logo
 z. Navbar -> Sign In button (Look change)
 
-------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+
+Session -> redirect happens.
+        show on Navbar
+        redirect him to signin/signup page if login
+        redirect him to signin when not login
+
+url/Home breaks it... fix
+fix the dashboard
+fix the navbar -> upon sign in success -> it does not change its shape (still remains sign in)
+    but changes upon hard refresh
+
+make DashBoard
+authentication success and failure boxes change
+
+Important: Replace your-super-secret-jwt-key-here-make-it-long-and-complex with a strong, unique secret key. You can generate one using:
+bashnode -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+
+----------------------------------------------------------------------------------------------
+
+NavbarWrapper???
+
